@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_ui/components/video_screen_components/video_detail_screen.dart';
 import 'package:youtube_ui/models/videoModels.dart';
 
 class VideoTiles extends StatefulWidget {
@@ -17,13 +18,35 @@ class _VideoTilesState extends State<VideoTiles> {
             padding: EdgeInsets.only(bottom: 20),
             child: Column(
               children: [
-                Container(
-                  height: 200,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(dummyData[index].thumbnail),
-                      fit: BoxFit.cover,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => VideoDetailScreen(
+                          thumbnail: dummyData[index].thumbnail,
+                          commentsCount: dummyData[index].commentsCount,
+                          daysAgo: dummyData[index].dayago,
+                          likeCount: dummyData[index].likeCount,
+                          profileImg: dummyData[index].thumbnail,
+                          subscribeCount: dummyData[index].subscribeCount,
+                          title: dummyData[index].title,
+                          unlikeCount: dummyData[index].unlickCount,
+                          username: dummyData[index].username,
+                          videoUrl: dummyData[index].videoUrl,
+                          viewCount: dummyData[index].viewcount,
+                        ),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    height: 200,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(dummyData[index].thumbnail),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),

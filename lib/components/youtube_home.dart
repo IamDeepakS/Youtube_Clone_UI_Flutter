@@ -14,7 +14,7 @@ class _YoutubeHomeState extends State<YoutubeHome>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 5, vsync: this, initialIndex: 1);
+    _tabController = TabController(length: 5, vsync: this, initialIndex: 0);
   }
 
   @override
